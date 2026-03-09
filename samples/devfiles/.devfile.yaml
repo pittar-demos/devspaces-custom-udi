@@ -1,0 +1,31 @@
+schemaVersion: 2.2.2
+attributes:
+  controller.devfile.io/storage-type: per-workspace
+metadata:
+  name: "custom-udi-demo"
+  provider: Andrew Pitt
+  displayName: Custom UDI Demo
+  description: Use a custom UDI image with Dev Spaces
+  tags:
+    - Demo
+    - DevSpaces
+  projectType: Demo
+  language: YAML
+projects:
+  - name: "custom-udi-demo"
+    git:
+      remotes:
+        origin: "https://github.com/pittar-demos/devspaces-custom-udi"
+      checkoutFrom:
+        revision: "main"
+        remote: origin
+components:
+  - name: tools
+    container:
+      image: quay.io/pittar/custom-udi-rhel9:latest
+      args: ['tail', '-f', '/dev/null']
+      mountSources: true
+      cpuLimit: '2'
+      cpuRequest: '1'
+      memoryLimit: '4G'
+      memoryRequest: '4G'

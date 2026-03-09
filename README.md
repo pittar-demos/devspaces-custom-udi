@@ -37,7 +37,7 @@ This is a basic example.  For this demo, I'll be adding the following utilities:
 * AWS CLI
 * Azure CLI
 * Helm
-* JQ/YQ
+* JQ/YQ (already part of base UDI)
 * ROSA CLI
 * Powershell
 * Azure Powershell

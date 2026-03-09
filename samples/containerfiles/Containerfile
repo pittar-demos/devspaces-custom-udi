@@ -1,0 +1,17 @@
+# FROM UDI Latest
+FROM registry.redhat.io/devspaces/udi-rhel9:latest
+
+USER root
+
+# Add AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install && \
+    rm -f awscliv2.zip
+
+# Add Azure CLI
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
+RUN dnf install -y https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm && \
+    dnf install -y azure-cli powershell
+
+USER 1001
