@@ -24,4 +24,11 @@ RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/s
     ./get_helm.sh && \
     rm get_helm.sh
 
+# 5. Add ROSA CLI (with ownership fix)
+RUN curl -L "https://developers.redhat.com/content-gateway/file/pub/cgw/rosa/1.2.61/rosa-linux.tar.gz" -o "rosa-linux.tar.gz" && \
+    tar -xvf rosa-linux.tar.gz --no-same-owner && \
+    mv rosa /usr/local/bin/rosa && \
+    chmod +x /usr/local/bin/rosa && \
+    rm rosa-linux.tar.gz
+
 USER 1001

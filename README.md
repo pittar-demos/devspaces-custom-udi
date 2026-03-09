@@ -36,9 +36,9 @@ This is a basic example.  For this demo, I'll be adding the following utilities:
 
 * AWS CLI (done)
 * Azure CLI (done)
-* Helm
+* Helm (done)
 * JQ/YQ (already part of base UDI)
-* ROSA CLI
+* ROSA CLI (done)
 * Powershell (done)
 * Azure Powershell (done)
 
