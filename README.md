@@ -34,12 +34,12 @@ USER 1001
 
 This is a basic example.  For this demo, I'll be adding the following utilities:
 
-* AWS CLI
-* Azure CLI
+* AWS CLI (done)
+* Azure CLI (done)
 * Helm
 * JQ/YQ (already part of base UDI)
 * ROSA CLI
-* Powershell
-* Azure Powershell
+* Powershell (done)
+* Azure Powershell (done)
 
 Or at least a subset of these... we'll ses how many I get to :)

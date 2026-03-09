@@ -3,15 +3,25 @@ FROM registry.redhat.io/devspaces/udi-rhel9:latest
 
 USER root
 
-# Add AWS CLI
+# 1. Add AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
     ./aws/install && \
-    rm -f awscliv2.zip
+    rm -rf awscliv2.zip aws/
 
-# Add Azure CLI
-RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
-RUN dnf install -y https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm && \
-    dnf install -y azure-cli powershell
+# 2. Add Azure CLI & PowerShell
+RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+    dnf install -y https://packages.microsoft.com/config/rhel/9.0/packages-microsoft-prod.rpm && \
+    dnf install -y azure-cli powershell && \
+    dnf clean all
+
+# 3. Install Azure Powershell (Fixing the previous shell error)
+RUN pwsh -Command "Install-Module -Name Az -Repository PSGallery -Force -Scope AllUsers"
+
+# 4. Add Helm CLI
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && \
+    chmod 700 get_helm.sh && \
+    ./get_helm.sh && \
+    rm get_helm.sh
 
 USER 1001
