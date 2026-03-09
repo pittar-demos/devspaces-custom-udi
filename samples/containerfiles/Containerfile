@@ -31,4 +31,9 @@ RUN curl -L "https://developers.redhat.com/content-gateway/file/pub/cgw/rosa/1.2
     chmod +x /usr/local/bin/rosa && \
     rm rosa-linux.tar.gz
 
+# 6. We do this last to catch any files created by the installations above
+RUN chgrp -R 0 /home/user && \
+    chmod -R g=u /home/user
+
 USER 1001
+WORKDIR /home/user
