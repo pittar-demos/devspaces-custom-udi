@@ -1,5 +1,3 @@
-[Open in Dev Spaces](https://devspaces.apps.prime.pitt.ca/#https://github.com/pittar-demos/devspaces-custom-udi.git)
-
 # Dev Spaces - Custom UDI Demo
 
 Red Hat OpenShift Dev Spaces is a powerful, full featured IDE experience.  The IDE and tooling run on your OpenShift cluster as a pod in your own namespace, then you access the IDE through your browser.
