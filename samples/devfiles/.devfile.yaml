@@ -22,7 +22,7 @@ projects:
 components:
   - name: tools
     container:
-      image: quay.io/pittar/custom-udi-rhel9:latest
+      image: quay.io/pittar/custom-udi-demo:latest
       args: ['tail', '-f', '/dev/null']
       mountSources: true
       cpuLimit: '2'
