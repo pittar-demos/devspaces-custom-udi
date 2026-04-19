@@ -30,3 +30,13 @@ components:
       cpuRequest: '1'
       memoryLimit: '4G'
       memoryRequest: '4G'
+commands:
+  - id: 1-az-login
+    exec:
+      label: "1. Login to Azure"
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/"custom-udi-demo"
+      commandLine: "az login --use-device-code"
+      group:
+        kind: build
+        isDefault: true
