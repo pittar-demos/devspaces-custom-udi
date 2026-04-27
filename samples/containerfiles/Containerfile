@@ -31,6 +31,16 @@ RUN curl -L "https://developers.redhat.com/content-gateway/file/pub/cgw/rosa/1.2
     chmod +x /usr/local/bin/rosa && \
     rm rosa-linux.tar.gz
 
+# Install OpenCode
+ENV OPENCODE_VERSION=v1.14.28
+RUN mkdir -p /opt/opencode-install && \
+    curl -L -o /opt/opencode-install/opencode.tar.gz \
+    https://github.com/anomalyco/opencode/releases/download/${OPENCODE_VERSION}/opencode-linux-x64.tar.gz && \
+    tar -xzf /opt/opencode-install/opencode.tar.gz -C /opt/opencode-install && \
+    mv /opt/opencode-install/opencode /usr/local/bin/opencode && \
+    chmod +x /usr/local/bin/opencode && \
+    rm -rf /opt/opencode-install 
+
 # 6. We do this last to catch any files created by the installations above
 RUN chgrp -R 0 /home/user && \
     chmod -R g=u /home/user
