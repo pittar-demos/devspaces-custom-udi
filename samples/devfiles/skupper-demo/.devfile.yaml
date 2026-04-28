@@ -1,0 +1,28 @@
+schemaVersion: 2.2.2
+attributes:
+  controller.devfile.io/storage-type: per-workspace
+metadata:
+  name: "skupper"
+  provider: Andrew Pitt
+  displayName: Skupper Demo
+  description: Skupper frontend and backend repos.
+  tags:
+    - Demo
+    - DevSpaces
+  projectType: Demo
+  language: YAML
+projects:
+  - name: "skupper-frontend"
+    git:
+      remotes:
+        origin: "https://github.com/pittar-rhdh/skupper-frontend.git"
+      checkoutFrom:
+        revision: "main"
+        remote: origin
+  - name: "skupper-backend"
+    git:
+      remotes:
+        origin: "https://github.com/pittar-rhdh/skupper-backend.git"
+      checkoutFrom:
+        revision: "main"
+        remote: origin
