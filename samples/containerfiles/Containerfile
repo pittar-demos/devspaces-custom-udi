@@ -32,7 +32,7 @@ RUN curl -L "https://developers.redhat.com/content-gateway/file/pub/cgw/rosa/1.2
     rm rosa-linux.tar.gz
 
 # Install OpenCode
-ENV OPENCODE_VERSION=v1.17.11
+ENV OPENCODE_VERSION=v1.18.7
 RUN mkdir -p /opt/opencode-install && \
     curl -L -o /opt/opencode-install/opencode.tar.gz \
     https://github.com/anomalyco/opencode/releases/download/${OPENCODE_VERSION}/opencode-linux-x64.tar.gz && \
