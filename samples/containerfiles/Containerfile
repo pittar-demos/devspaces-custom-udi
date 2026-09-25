@@ -1,10 +1,5 @@
 # FROM UDI Latest
 FROM registry.redhat.io/devspaces/udi-rhel9:latest
-#FROM registry.access.redhat.com/devspaces/udi-rhel9:latest
-
-# Neutralize NVIDIA OCI hook triggers for non-GPU execution
-ENV NVIDIA_VISIBLE_DEVICES=void
-ENV NVIDIA_DRIVER_CAPABILITIES=none
 
 USER root
 
