@@ -41,6 +41,16 @@ RUN mkdir -p /opt/opencode-install && \
     chmod +x /usr/local/bin/opencode && \
     rm -rf /opt/opencode-install 
 
+# Install Claude Code CLI and OpenAI Codex CLI (via npm, Node.js ships with the UDI)
+ENV CLAUDE_CODE_VERSION=latest
+ENV CODEX_VERSION=latest
+RUN npm install -g \
+        @anthropic-ai/claude-code@${CLAUDE_CODE_VERSION} \
+        @openai/codex@${CODEX_VERSION} && \
+    npm cache clean --force && \
+    claude --version && \
+    codex --version
+
 # 6. We do this last to catch any files created by the installations above
 RUN chgrp -R 0 /home/user && \
     chmod -R g=u /home/user
